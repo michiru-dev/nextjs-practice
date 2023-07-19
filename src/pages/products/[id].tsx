@@ -15,7 +15,11 @@ import Link from "next/link";
 //   };
 // }
 
-// //getStaticPathsとgetStaticPropsはセット
+//getStaticPathsとgetStaticPropsはセット
+//getStaticPropsでparamsを受け取らない場合はセットじゃなくて　OK
+//getStaticPropsやgetServerSidePropsで受け取るparamsは/の後のpathだけどアクセス時にかそれがとれてこない
+//つまりgetStaticPropsはビルド時なのでアクセスがされないためparamsに渡ってくるものがない、
+//それをgetStaticPathsで代わりにわたす！だからparamsがいるなら必ずセット！
 // export async function getStaticPaths() {
 //   const req = await fetch(`http://localhost:3000/products.json`);
 //   const data = await req.json();
